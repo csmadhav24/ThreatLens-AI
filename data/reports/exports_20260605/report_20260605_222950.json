@@ -1,0 +1,346 @@
+{
+  "report_metadata": {
+    "report_id": "SOC-IR-20260605_222903",
+    "report_title": "Security Incident Investigation Report",
+    "generated_by": "SOC Investigation & Response Assistant",
+    "version": "1.0.0",
+    "generated_at": "2026-06-05T22:29:03.757332",
+    "classification": "CONFIDENTIAL - SOC Internal",
+    "company": "Security Operations Center"
+  },
+  "executive_summary": {
+    "risk_score": 47,
+    "risk_level": "HIGH",
+    "risk_description": "Urgent investigation required - suspicious activity confirmed",
+    "total_events_analyzed": 18,
+    "critical_findings": 6,
+    "high_findings": 7,
+    "medium_findings": 0,
+    "key_findings": [
+      "Privilege escalation attempts detected (2 events)",
+      "5 CRITICAL severity events detected",
+      "3 HIGH severity events detected",
+      "2026-06-05T08:15:33.230Z HIGH     SECURITY       Excessive login failures user=admin source_ip=185.44.10.7 failures=25"
+    ],
+    "executive_bullets": [
+      "Security investigation identified 13 potential security events requiring attention",
+      "Monitor and investigate findings per standard SOC procedures"
+    ]
+  },
+  "incident_overview": {
+    "detection_time": "2026-06-05T22:29:03.757382",
+    "investigation_period": {
+      "start": "2026-06-05T08:00:01.125000+00:00",
+      "end": "2026-06-05T09:15:00.312000+00:00",
+      "duration_hours": 1.2497741666666666
+    },
+    "affected_assets": [
+      {
+        "type": "user_accounts",
+        "count": 0,
+        "details": []
+      }
+    ],
+    "attack_vectors": [],
+    "confidence_level": "LOW"
+  },
+  "technical_findings": {
+    "summary_table": {
+      "total_events": 18,
+      "failed_logins": 2,
+      "suspicious_powershell": 0,
+      "privilege_escalation": 2,
+      "lateral_movement": 0,
+      "persistence_attempts": 0,
+      "ioc_matches": 0,
+      "anomalies": 6
+    },
+    "detailed_findings": {
+      "failed_logins": {
+        "count": 2,
+        "severity": "HIGH",
+        "examples": [
+          {
+            "timestamp": "2026-06-05 08:15:33.230000+00:00",
+            "source": "SECURITY",
+            "severity": "HIGH",
+            "raw_log": "2026-06-05T08:15:33.230Z HIGH     SECURITY       Excessive login failures user=admin source_ip=185.44.10.7 failures=25"
+          },
+          {
+            "timestamp": "2026-06-05 08:15:34.012000+00:00",
+            "source": "SECURITY",
+            "severity": "HIGH",
+            "raw_log": "2026-06-05T08:15:34.012Z HIGH     SECURITY       Account lockout triggered user=admin duration=30m"
+          }
+        ],
+        "top_ips": {},
+        "top_users": {}
+      },
+      "privilege_escalation": {
+        "count": 2,
+        "severity": "CRITICAL",
+        "examples": [
+          {
+            "timestamp": "2026-06-05 08:43:41.788000+00:00",
+            "event_type": "privilege_escalation",
+            "severity": "CRITICAL",
+            "details": "2026-06-05T08:43:41.788Z HIGH     SECURITY       Suspicious privilege escalation detected user=svc-reports"
+          },
+          {
+            "timestamp": "2026-06-05 08:43:42.101000+00:00",
+            "event_type": "privilege_escalation",
+            "severity": "CRITICAL",
+            "details": "2026-06-05T08:43:42.101Z CRITICAL SECURITY       Unauthorized admin role assignment user=svc-reports target_role=SUPER_ADMIN"
+          }
+        ]
+      },
+      "anomalies": {
+        "count": 6,
+        "severity": "MEDIUM",
+        "anomalies": [
+          {
+            "type": "high_severity_critical_events",
+            "count": 5,
+            "severity": "CRITICAL",
+            "details": "5 CRITICAL severity events detected"
+          },
+          {
+            "type": "high_severity_high_events",
+            "count": 3,
+            "severity": "HIGH",
+            "details": "3 HIGH severity events detected"
+          },
+          {
+            "type": "excessive_login_failures",
+            "severity": "HIGH",
+            "details": "2026-06-05T08:15:33.230Z HIGH     SECURITY       Excessive login failures user=admin source_ip=185.44.10.7 failures=25"
+          },
+          {
+            "type": "account_lockout",
+            "severity": "HIGH",
+            "details": "2026-06-05T08:15:34.012Z HIGH     SECURITY       Account lockout triggered user=admin duration=30m"
+          },
+          {
+            "type": "unauthorized_access",
+            "severity": "HIGH",
+            "details": "2026-06-05T08:43:42.101Z CRITICAL SECURITY       Unauthorized admin role assignment user=svc-reports target_role=SUPER_ADMIN"
+          },
+          {
+            "type": "suspicious_activity",
+            "severity": "HIGH",
+            "details": "2026-06-05T08:43:41.788Z HIGH     SECURITY       Suspicious privilege escalation detected user=svc-reports"
+          }
+        ]
+      }
+    }
+  },
+  "network_analysis": null,
+  "timeline": [
+    {
+      "timestamp": "2026-06-05 08:15:33.230000+00:00",
+      "event_type": "failed_logins",
+      "description": "Failed login attempt - User: Unknown from Unknown",
+      "severity": "HIGH"
+    },
+    {
+      "timestamp": "2026-06-05 08:15:34.012000+00:00",
+      "event_type": "failed_logins",
+      "description": "Failed login attempt - User: Unknown from Unknown",
+      "severity": "HIGH"
+    },
+    {
+      "timestamp": "2026-06-05 08:43:41.788000+00:00",
+      "event_type": "privilege_escalation",
+      "description": "Privilege escalation attempt by Unknown",
+      "severity": "CRITICAL"
+    },
+    {
+      "timestamp": "2026-06-05 08:43:42.101000+00:00",
+      "event_type": "privilege_escalation",
+      "description": "Privilege escalation attempt by Unknown",
+      "severity": "CRITICAL"
+    }
+  ],
+  "indicators_of_compromise": {
+    "ip_addresses": [],
+    "domains": [],
+    "file_hashes": [],
+    "commands": [],
+    "total_iocs": 0
+  },
+  "risk_assessment": {
+    "risk_score": 47,
+    "risk_category": "HIGH",
+    "immediate_action": "Escalate to incident response team",
+    "business_impact": "Potential unauthorized access or malware",
+    "likelihood": "POSSIBLE",
+    "impact": "HIGH",
+    "factors": [
+      "Privilege escalation attempts detected",
+      "Multiple anomalies detected"
+    ]
+  },
+  "remediation_plan": {
+    "immediate_actions": [
+      "Revoke elevated privileges from compromised accounts",
+      "Force password reset for affected users"
+    ],
+    "short_term_actions": [
+      "Run full antivirus/EDR scan on affected systems",
+      "Review all scheduled tasks and services",
+      "Enable enhanced logging for critical systems",
+      "Conduct thorough investigation of all findings"
+    ],
+    "long_term_actions": [
+      "Implement application whitelisting",
+      "Deploy Privileged Access Management (PAM)",
+      "Enhance security awareness training",
+      "Conduct regular security assessments"
+    ],
+    "verification_steps": [
+      "Confirm no new suspicious activity detected",
+      "Verify all remediation actions completed",
+      "Document lessons learned",
+      "Update security controls and monitoring rules"
+    ]
+  },
+  "recommendations": [
+    "Conduct regular security awareness training for all users",
+    "Perform regular vulnerability assessments and penetration testing",
+    "Maintain offline, immutable backups of critical data"
+  ],
+  "appendix": {
+    "raw_data_samples": {
+      "first_10_events": [
+        {
+          "timestamp": "2026-06-05 08:00:01.125000+00:00",
+          "severity": "INFO",
+          "source": "AUTH-SVC",
+          "message": "2026-06-05T08:00:01.125Z INFO     AUTH-SVC       Service startup complete version=4.8.2",
+          "raw_log": "2026-06-05T08:00:01.125Z INFO     AUTH-SVC       Service startup complete version=4.8.2",
+          "line_number": 0,
+          "severity_normalized": "LOW"
+        },
+        {
+          "timestamp": "2026-06-05 08:01:12.411000+00:00",
+          "severity": "INFO",
+          "source": "API-GW",
+          "message": "2026-06-05T08:01:12.411Z INFO     API-GW         Request received method=POST path=/api/login request_id=req-1001",
+          "raw_log": "2026-06-05T08:01:12.411Z INFO     API-GW         Request received method=POST path=/api/login request_id=req-1001",
+          "line_number": 1,
+          "severity_normalized": "LOW"
+        },
+        {
+          "timestamp": "2026-06-05 08:01:12.932000+00:00",
+          "severity": "INFO",
+          "source": "AUTH-SVC",
+          "message": "2026-06-05T08:01:12.932Z INFO     AUTH-SVC       User authenticated user_id=U1042 source_ip=203.0.113.10",
+          "raw_log": "2026-06-05T08:01:12.932Z INFO     AUTH-SVC       User authenticated user_id=U1042 source_ip=203.0.113.10",
+          "line_number": 2,
+          "severity_normalized": "LOW"
+        },
+        {
+          "timestamp": "2026-06-05 08:03:44.018000+00:00",
+          "severity": "WARN",
+          "source": "API-GW",
+          "message": "2026-06-05T08:03:44.018Z WARN     API-GW         High latency detected endpoint=/api/search latency_ms=2875",
+          "raw_log": "2026-06-05T08:03:44.018Z WARN     API-GW         High latency detected endpoint=/api/search latency_ms=2875",
+          "line_number": 3,
+          "severity_normalized": "MEDIUM"
+        },
+        {
+          "timestamp": "2026-06-05 08:05:21.664000+00:00",
+          "severity": "ERROR",
+          "source": "DB-PRIMARY",
+          "message": "2026-06-05T08:05:21.664Z ERROR    DB-PRIMARY     Query timeout query=getCustomerProfile duration_ms=30001",
+          "raw_log": "2026-06-05T08:05:21.664Z ERROR    DB-PRIMARY     Query timeout query=getCustomerProfile duration_ms=30001",
+          "line_number": 4,
+          "severity_normalized": "HIGH"
+        },
+        {
+          "timestamp": "2026-06-05 08:05:22.107000+00:00",
+          "severity": "ERROR",
+          "source": "API-GW",
+          "message": "2026-06-05T08:05:22.107Z ERROR    API-GW         Upstream dependency failure service=customer-profile status=504",
+          "raw_log": "2026-06-05T08:05:22.107Z ERROR    API-GW         Upstream dependency failure service=customer-profile status=504",
+          "line_number": 5,
+          "severity_normalized": "HIGH"
+        },
+        {
+          "timestamp": "2026-06-05 08:15:33.230000+00:00",
+          "severity": "HIGH",
+          "source": "SECURITY",
+          "message": "2026-06-05T08:15:33.230Z HIGH     SECURITY       Excessive login failures user=admin source_ip=185.44.10.7 failures=25",
+          "raw_log": "2026-06-05T08:15:33.230Z HIGH     SECURITY       Excessive login failures user=admin source_ip=185.44.10.7 failures=25",
+          "line_number": 6,
+          "severity_normalized": "HIGH"
+        },
+        {
+          "timestamp": "2026-06-05 08:15:34.012000+00:00",
+          "severity": "HIGH",
+          "source": "SECURITY",
+          "message": "2026-06-05T08:15:34.012Z HIGH     SECURITY       Account lockout triggered user=admin duration=30m",
+          "raw_log": "2026-06-05T08:15:34.012Z HIGH     SECURITY       Account lockout triggered user=admin duration=30m",
+          "line_number": 7,
+          "severity_normalized": "HIGH"
+        },
+        {
+          "timestamp": "2026-06-05 08:40:55.920000+00:00",
+          "severity": "CRITICAL",
+          "source": "DB-PRIMARY",
+          "message": "2026-06-05T08:40:55.920Z CRITICAL DB-PRIMARY     Replication lag exceeded threshold lag_seconds=620",
+          "raw_log": "2026-06-05T08:40:55.920Z CRITICAL DB-PRIMARY     Replication lag exceeded threshold lag_seconds=620",
+          "line_number": 8,
+          "severity_normalized": "CRITICAL"
+        },
+        {
+          "timestamp": "2026-06-05 08:41:10.102000+00:00",
+          "severity": "CRITICAL",
+          "source": "DB-PRIMARY",
+          "message": "2026-06-05T08:41:10.102Z CRITICAL DB-PRIMARY     Primary database unavailable node=db-prod-01",
+          "raw_log": "2026-06-05T08:41:10.102Z CRITICAL DB-PRIMARY     Primary database unavailable node=db-prod-01",
+          "line_number": 9,
+          "severity_normalized": "CRITICAL"
+        }
+      ],
+      "columns": [
+        "timestamp",
+        "severity",
+        "source",
+        "message",
+        "raw_log",
+        "line_number",
+        "severity_normalized"
+      ]
+    },
+    "analysis_parameters": {
+      "analysis_timestamp": "2026-06-05T22:29:03.763121",
+      "total_events_analyzed": 18,
+      "risk_scoring_method": "Weighted severity scoring",
+      "detection_modules": [
+        "authentication",
+        "process",
+        "command_line",
+        "temporal"
+      ]
+    },
+    "glossary": [
+      {
+        "term": "IOC",
+        "definition": "Indicator of Compromise - evidence of potential security breach"
+      },
+      {
+        "term": "MITRE ATT&CK",
+        "definition": "Knowledge base of adversary tactics and techniques"
+      },
+      {
+        "term": "Lateral Movement",
+        "definition": "Techniques used to move through a network"
+      },
+      {
+        "term": "Privilege Escalation",
+        "definition": "Gaining elevated access to resources"
+      }
+    ]
+  }
+}
