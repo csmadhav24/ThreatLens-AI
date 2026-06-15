@@ -71,20 +71,21 @@ pip install -r requirements.txt
 
 # Pull the AI model (about 2GB)
 ollama pull llama3.2:3b
+```
 Run the Application
-bash
+```bash
 # Terminal 1: Start Ollama service
 ollama serve
 
 # Terminal 2: Run the app
 streamlit run app/main.py
+```
 Open your browser to http://localhost:8501
 
-💬 Example Queries
+### 💬 Example Queries
 Try asking the SOC Analyst AI:
 
-text
-🔍 "Investigate this incident"
+```🔍 "Investigate this incident"
 📜 "Show attack timeline"
 🎯 "Identify root cause"
 🛡️ "Recommend remediation"
@@ -94,7 +95,9 @@ text
 👤 "List affected assets"
 🔗 "Show correlated events"
 📊 "Confidence assessment"
-📁 Project Structure
+```
+### 📁 Project Structure
+```
 text
 soc-investigation-assistant/
 ├── app/
@@ -119,7 +122,9 @@ soc-investigation-assistant/
 ├── requirements.txt            # Python dependencies
 ├── .gitignore                  # Git ignore rules
 └── README.md                   # This file
-🛠️ Tech Stack
+```
+### 🛠️ Tech Stack
+```
 Component	Technology
 Frontend	Streamlit
 Data Processing	Pandas, NumPy
@@ -127,8 +132,9 @@ Local LLM	Ollama (Llama 3.2 3B)
 PCAP Analysis	Scapy
 Visualizations	Matplotlib, Plotly
 Export Formats	JSON, CSV, Markdown
-📊 Sample Output
-text
+```
+### 📊 Sample Output
+```text
 📊 Executive Summary
 🔴 CRITICAL RISK: 85/100 - Active compromise indicators
 
@@ -147,7 +153,9 @@ Metrics:
 ├── user3233 (occurred 45 times)
 ├── user3364 (occurred 38 times)
 └── user2680 (occurred 32 times)
-🔒 Privacy & Security
+```
+### 🔒 Privacy & Security
+
 100% Local Processing - No data ever leaves your machine
 
 Offline Capable - Works without internet after initial setup
@@ -156,7 +164,8 @@ No Telemetry - No tracking, no analytics
 
 Open Source - Fully auditable code
 
-🤝 Contributing
+### 🤝 Contributing
+
 Contributions are welcome! Here's how:
 
 Fork the repository
@@ -169,10 +178,12 @@ Push to the branch (git push origin feature/AmazingFeature)
 
 Open a Pull Request
 
-📄 License
+### 📄 License
+
 Distributed under the MIT License. See LICENSE file for more information.
 
-🙏 Acknowledgments
+### 🙏 Acknowledgments
+
 Streamlit - Amazing web framework for data apps
 
 Ollama - Local LLM inference
@@ -181,15 +192,18 @@ MITRE ATT&CK - Industry-standard framework
 
 Llama 3.2 - Open-source LLM by Meta
 
-📧 Contact
-Your Name - @yourlinkedin
+### 📧 Contact
 
-Project Link: https://github.com/yourusername/soc-investigation-assistant
+Your Name - @madhavrajsinh rana 
 
-⭐ Show Your Support
+Project Link: https://github.com/csmadhav24/ThreatLens-AI
+
+### ⭐ Show Your Support
+
 If this project helped you, please give it a ⭐️!
 
-🎯 Roadmap
+### 🎯 Roadmap
+
 Real-time log monitoring
 
 Email/Slack alerting
@@ -200,4 +214,4 @@ Multi-tenant support
 
 Docker deployment
 
-Built with ❤️ for the security community
+# Built with ❤️ for the security community
